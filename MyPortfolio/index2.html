@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mandalay-Diary</title>
+         <!-- bootstrap css  -->
+         <link rel="stylesheet" href="./css/bootstrap.min.css">
+         <!-- js jquery -->
+         <script src="./js/jquery-3.4.1.min.js"></script>
+         <!-- bootstrap js -->
+         <script src="./js/bootstrap.bundle.min.js"></script>
+         <!-- fontawesome -->
+         <!-- <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-auto-replace-svg="nest"></script> -->
+         <script src="js/all.js"></script>
+         <!-- GoogleFonts -->
+         <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+         <!-- main css -->
+         <link rel="stylesheet" href="css/main.css">
+         <link rel="stylesheet" href="css/styles.css">
+         <style>
+             a {font-size: 1rem; color:black;
+             }
+         </style>
+    </head>
+<body>
+    <header>               
+        <h1>Welcome to My Portfolio</h1>
+    </header>
+    <style>
+      /* General styles for div sections */
+.section {
+  opacity: 0; /* Initially hidden */
+  transform: translateX(-100%); /* Position it off-screen */
+  transition: all 0.5s ease;
+  color: #000;
+}
+
+/* Waving animation keyframes */
+@keyframes waveIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%); /* Starts from the left */
+  }
+  50% {
+    transform: translateX(10%); /* Moves slightly to the right, creating a wave effect */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Ends at the original position */
+  }
+}
+
+/* When the section is visible, apply the wave animation */
+.section.visible {
+  animation: waveIn 1s ease forwards; /* Animation triggered when visible */
+}
+
+    </style>
+
+<script>
+  // Function to check if the section is in the viewport
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  // Add event listener for scroll
+  window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('.section'); // Select all sections with the class 'section'
+    
+    sections.forEach(section => {
+      if (isInViewport(section)) {
+        section.classList.add('visible'); // Add class to trigger animation when in view
+      }
+    });
+  });
+</script>
+<div class="section">
+  <h2>Section 1</h2>
+  <p>This is the first section with a waving animation effect.</p>
+</div>
+
+<div class="section">
+  <h2>Section 2</h2>
+  <p>This is the second section with a waving animation effect.</p>
+</div>
+
+<div class="section">
+  <h2>Section 3</h2>
+  <p>This is the third section with a waving animation effect.</p>
+</div>
+
+    <section class="container">
+    <div class="profile-container">
+        <!-- Profile picture (shown first) -->
+        <img class="profile-picture" src="https://i.pinimg.com/564x/ca/97/e3/ca97e3c55ed0b44e4f100f407bf078a4.jpg" alt="Profile Picture">
+        
+        <!-- AI avatar (appears on hover or after an event) -->
+        <img class="ai-avatar" src="https://i.pinimg.com/236x/ac/c4/11/acc4116372dcc4b342cb1a00ae657151.jpg" alt="AI Avatar">
+           
+      </div> 
+      <p class="intro"><span>Hi there!</span> </p>
+    </section>
+    <section>
+        <h2>About Me</h2>
+        <p>This is where you write about yourself.</p>
+    </section>
+    <section>
+        <h2>Projects</h2>
+        <p>Details of your projects will go here.</p>
+    </section>
+    
+    <style>
+        .profile-container {
+            display: flex;
+          position: relative;
+          width: 250px;
+          height: 250px;
+          align-items: start;
+        }
+      
+        /* Both images share the same size and are positioned absolutely */
+        .profile-container img {
+            display: flex;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%; /* Make both circular */
+          object-fit: cover;
+          backface-visibility: hidden; /* Prevent showing the backside during spin */
+          transition: opacity 2s ease-in-out;
+        
+        }
+      
+        /* Default: AI avatar is hidden */
+        .ai-avatar {
+          opacity: 0;
+        }
+      
+        /* Animation for spinning */
+        @keyframes spin {
+          0% { transform: rotateY(0deg); }
+          100% { transform: rotateY(360deg); }
+        }
+      
+        /* On hover: Spin and fade between the images */
+        .profile-container:hover img {
+          animation: spin 2s ease-in-out;
+        }
+      
+        /* Fade the profile picture out and AI avatar in */
+        .profile-container:hover .profile-picture {
+          opacity: 0;
+        }
+      
+        .profile-container:hover .ai-avatar {
+          opacity: 1;
+        }
+        
+      </style>
+      
+      <div class="profile-container">
+        <!-- Profile picture (shown first) -->
+        <img class="profile-picture" src="https://i.pinimg.com/564x/ca/97/e3/ca97e3c55ed0b44e4f100f407bf078a4.jpg" alt="Profile Picture">
+        
+        <!-- AI avatar (appears on hover) -->
+        <img class="ai-avatar" src="https://i.pinimg.com/236x/ac/c4/11/acc4116372dcc4b342cb1a00ae657151.jpg" alt="AI Avatar">
+      </div>
+      
+      
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .text-container {
+            font-size: 2em;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .word {
+            display: inline-block;
+            animation: bounce 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .word:nth-child(1) { animation-delay: 0s; }
+        .word:nth-child(2) { animation-delay: 0.1s; }
+        .word:nth-child(3) { animation-delay: 0.2s; }
+        .word:nth-child(4) { animation-delay: 0.3s; }
+        .word:nth-child(5) { animation-delay: 0.4s; }
+        /* Add more nth-child selectors as needed */
+
+        @keyframes bounce {
+            0% { transform: translateY(100%); opacity: 0; }
+            50% { transform: translateY(-20%); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <span class="word">Each</span>
+        <span class="word">word</span>
+        <span class="word">pops</span>
+        <span class="word">up</span>
+        <span class="word">by</span>
+        <span class="word">bouncing</span>
+    </div>
+</body>
+</html>
+<div class="navbar">
+  <div class="marquee">
+      <span class="marquee-content">
+          Portfolio | About Me | Projects | Contact | Portfolio | About Me | Projects | Contact 
+      </span>
+  </div>
+</div>
+
+  <style>
+    /* Basic Navbar Styling */
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+}
+
+/* Marquee Container */
+.marquee {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+}
+
+/* Content to be scrolled */
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+/* Keyframes for the animation */
+@keyframes marquee {
+    0% { 
+        transform: translateX(0%); 
+    }
+    100% { 
+        transform: translateX(-100%); 
+    }
+}
+
+  </style>
+      
+      
+        <footer>
+        <p>Contact information here.</p>
+    </footer>
+
+    <style>
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            perspective: 1000px; /* 3D perspective */
+            height: 200px;
+        }
+
+        .icon {
+            width: 100px; /* Size of icons */
+            height: 100px;
+            transform-style: preserve-3d; /* 3D transform effect */
+            animation: rotate 5s infinite linear; /* Rotates infinitely */
+        }
+
+        .html-icon {
+            animation-delay: 0s;
+        }
+        .css-icon {
+            animation-delay: 0.5s;
+        }
+        .js-icon {
+            animation-delay: 1s;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .icon:hover {
+            transform: rotateY(180deg) scale(1.1); /* Hover effect */
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="icon-container">
+        <img src="path-to-html-icon.png" alt="HTML Icon" class="icon html-icon">
+        <img src="path-to-css-icon.png" alt="CSS Icon" class="icon css-icon">
+        <img src="path-to-js-icon.png" alt="JavaScript Icon" class="icon js-icon">
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Card Image" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">Card Title</h2>
+            <p class="card-text">This is a description of the content inside the card.</p>
+            <a href="#" class="card-btn">Read More</a>
+        </div>
+    </div>
+    
+    
+    
+<style>
+   /* Card container */
+.card {
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: #fff;
+}
+
+/* Card image */
+.card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Card content */
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    padding: 15px;
+    transform: translateY(100%); /* Hide content below the card initially */
+    opacity: 0; /* Make content invisible initially */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+
+/* Reveal content on hover */
+.card:hover .card-content {
+    transform: translateY(0); /* Slide content up */
+    opacity: 1; /* Make content visible */
+}
+
+/* Card title */
+.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #264653;
+}
+
+/* Card text */
+.card-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Card button */
+.card-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #264653;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card-btn:hover {
+    background-color: #2a9d8f;
+}
+
+
+</style>  
+
+<div class="container">
+    <section class="section"><div class="background-text">ABOUT ME</div>
+        <div class="img">
+            <img class="profile" src="https://i.pinimg.com/564x/ca/97/e3/ca97e3c55ed0b44e4f100f407bf078a4.jpg" alt="Profile Picture">                 
+        </div>            
+        <div class="abtme-container">
+            <h1 class="hightlight">ABOUT ME</h1>
+            <p class="name">I'm <span> Ophielia.</span> Software Engineer/ Web Developer/ Web Designer</p>
+            <p class="myself">"I’m a front-end developer with an HND in [Your Field] from [Your College], where I graduated with Merit. Alongside my formal education, I’ve earned multiple certifications from freeCodeCamp, including Responsive Web Design and JavaScript Algorithms and Data Structures. This combination of practical education and hands-on projects has equipped me with the skills to create responsive, user-friendly web applications."</p>
+            <!--<div class="certifications">
+                <h3>Skills I acquired<span style="font-size: medium;">(As a dedicated person)</span></h3>
+                <img class="skills" alt="Skills" src="https://i.pinimg.com/564x/b2/2e/ea/b22eea167950645f72475f35ee75179e.jpg">
+             
+                <p></p>
+                <a href="https://www.freecodecamp.org/certification/fcc69730722-fa53-4fa1-bc42-9c2fe24abba0/javascript-algorithms-and-data-structures">My Certification</a>
+            </div> -->
+        </div>        </section>
+    <section class="section"> <div><h2 class="mypro">My Projects</h2></div>  
+        <div class="cards-container">
+        <div class="card">
+            <img src="img/page_1.png" alt="Card Image" class="card-img">
+            <div class="card-content">
+                <h2 class="card-title">UI/UX DESIGN</h2>
+                <p class="card-text">This is one of my ui/ux design for online book store.</p>
+                <a href="#" class="card-btn">Read More</a>
+            </div>
+        </div>  
+        
+        <div class="card">
+            <img src="img/home.png" alt="Card Image" class="card-img">
+            <div class="card-content">
+                <h2 class="card-title">WEB PAGE DESIGN</h2>
+                <p class="card-text">This is one of my webpage design for online air ticket.</p>
+                <a href="index2.html" class="card-btn">Read More</a>
+            </div>
+        </div>  
+
+        <div class="card">
+            <img src="img/page_1.png" alt="Card Image" class="card-img">
+            <div class="card-content">
+                <h2 class="card-title">UI/UX DESIGN</h2>
+                <p class="card-text">This is one of my ui/ux design for online book store.</p>
+                <a href="#" class="card-btn">Read More</a>
+            </div></section>
+    <section class="section">Content of Section 3</section>
+</div>
+<style>
+    .container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Hide overflowing sections */
+}
+
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1; /* Ensure only one section is visible at a time */
+  animation-duration: 3s; /* Duration for the transition */
+  animation-fill-mode: forwards; /* Keep the final state after the animation */
+  animation-timing-function: ease-in-out; /* Smooth transition */
+}
+
+.section:nth-child(1) {
+  animation-name: slideIn;
+  animation-delay: 0s;
+}
+
+.section:nth-child(2) {
+  animation-name: slideIn;
+  animation-delay: 3s;
+}
+
+.section:nth-child(3) {
+  animation-name: slideIn;
+  animation-delay: 6s;
+}
+
+/* Add more nth-child selectors for additional sections */
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2; /* Bring the section to the front */
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2; /* Keep the section visible */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+    z-index: 1; /* Send the section to the back */
+  }
+}
+
+
+</style>
+
+<div class="card">
+    <img src="img/home.png" alt="Sample Image" class="card-img">
+    <div class="card-content">
+      <h2 class="card-title">Card Title</h2>
+      <p class="card-text">This is the content of the card. It appears when you hover over the card.</p>
+    </div>
+  </div>
+<style>
+    .card {
+  width: 300px;
+  height: 400px;
+  border: 2px solid #264653;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 0 15px rgba(38, 70, 83, 0.7); /* Neon glow around the card */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(38, 70, 83, 1), 
+              0 0 30px rgba(216, 175, 121, 0.7), 
+              0 0 40px rgba(255, 255, 179, 0.5); /* Glowing neon effect */
+}
+
+.card-img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.card-content {
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card:hover .card-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: aqua;
+  text-shadow: 0 0 5px rgba(38, 70, 83, 0.8), 
+               0 0 10px rgba(216, 175, 121, 0.7), 
+               0 0 15px rgba(255, 255, 179, 1); /* Neon effect on text */
+}
+
+.card-text {
+  font-size: 16px;
+  color: #333;
+}
+
+
+</style>  
+<div class="slider-container">
+  <div class="slider">
+    <div class="slide active">
+      <img src="img/home.png" alt="Image 1">
+    </div>
+    <div class="slide">
+      <img src="img/page_1.png" alt="Image 2">
+    </div>
+    <div class="slide">
+      <img src="img/Screenshot (5).png" alt="Image 3">
+    </div>
+    <!-- Add more slides as needed -->
+  </div>
+
+  <!-- Controls for navigation -->
+  <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+  <a class="next" onclick="moveSlide(1)">&#10095;</a>
+</div>
+<style>
+  /* Container for the image slider */
+.slider-container {
+  position: relative;
+  max-width: 100%; /* You can change the width */
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Slide class */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  transition: opacity 0.5s ease;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+/* Previous and next buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Hide inactive slides */
+.slide {
+  opacity: 0;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+</style>
+<script>
+  let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+// Show the initial slide
+showSlide(currentSlide);
+
+function moveSlide(direction) {
+  currentSlide += direction;
+
+  if (currentSlide >= slides.length) {
+    currentSlide = 0;
+  } else if (currentSlide < 0) {
+    currentSlide = slides.length - 1;
+  }
+
+  showSlide(currentSlide);
+}
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
+    }
+  });
+}
+
+</script>
+</body>
+</html>

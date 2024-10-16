@@ -1,0 +1,675 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    
+}
+
+header {    
+    color: #fff;
+    padding: 1% 0;
+    text-align: left;
+    padding-left: 3%;
+    position: fixed;
+    display: flex;
+    z-index: 10;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+    margin: 20px;
+}
+
+footer {
+    background: rgba(1, 16, 26,1);
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+
+.intro{
+  justify-content:center ;
+  text-align: center;
+ padding-top: 30%;
+}
+
+
+
+.profile-container {
+display: flex;
+position: relative;
+width: 250px;
+height: 250px;
+align-items: start;
+background-color: rgba(116, 75, 75, 0.1);
+border-radius: 50%;
+border-style:ridge;
+border-color:rgba(116, 75, 75, 0.1);
+}
+
+/* Both images share the same size and are positioned absolutely */
+.profile-container img {
+ display: flex;
+position: absolute;
+width: 100%;
+height: 100%;
+border-radius: 50%; /* Make both circular */
+object-fit: cover;
+backface-visibility: hidden; /* Prevent showing the backside during spin */
+transition: opacity 2s ease-in-out;
+
+}
+
+/* Default: AI avatar is hidden */
+.ai-avatar {
+opacity: 0;
+}
+
+/* Animation for spinning */
+@keyframes spin {
+0% { transform: rotateY(0deg); }
+100% { transform: rotateY(360deg); }
+}
+
+/* On hover: Spin and fade between the images */
+.profile-container:hover img {
+animation: spin 2s ease-in-out;
+}
+
+/* Fade the profile picture out and AI avatar in */
+.profile-container:hover .profile-picture {
+opacity: 0;
+}
+
+.profile-container:hover .ai-avatar {
+opacity: 1;
+}
+ .bg-gradient{  
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(1, 16, 26,1));
+    width: 100%;
+    height: 100%;
+ }
+
+ .bg-container{
+  display: flex;
+  justify-content:flex-center;
+  align-items: center;
+  background:  rgba(0, 0, 0, 0.5);
+  width: 80%; 
+  padding: 10%; 
+  margin-left: 10%;
+  gap: 100px;
+  margin-top: 50px;
+  border-radius: no
+ }
+ 
+ .intro{  
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #f4f4f4;
+  padding: 5px;
+ }
+ .name{    
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #f4f4f4;  
+    padding: 5px;
+ }
+
+ .intro,.name{
+    text-align: left;    
+ }
+
+ span{
+  font-weight: 200;
+  font-style: italic;
+  color: aqua;
+  font-size: 100%;
+  padding: 5px;  
+ }
+
+ .text-container{
+    display: inline-block;
+    width: 50%;
+   
+ }
+
+.role{
+  display: inline-block;
+  font-weight: 200;
+  font-style: italic;
+  color: aqua;
+  font-size: 100%;
+  padding: 5px ;  
+  background-color:#264653;
+  border-radius: 5%;  
+}
+
+.navbar{
+  padding-left: 50px;
+  gap: 550px;
+ 
+}
+
+.nav-link{
+  color: #fff;
+  font-size: medium;
+  font-family: Georgia, 'Times New Roman', Times, serif;  
+}
+.nav-link:hover{
+  color: #2a9d8f;
+}
+
+.animated-text {
+  display: inline-block;
+  animation: zoom-in 0.5s ease forwards;
+  opacity: 0;
+  transform: scale(0);
+  font-size: xx-large;
+  color: #fff;
+}
+
+.word:nth-child(1) { animation-delay: 0s; }
+.word:nth-child(2) { animation-delay: 0.2s; }
+.word:nth-child(3) { animation-delay: 0.4s; }
+.word:nth-child(4) { animation-delay: 0.6s; }
+.word:nth-child(5) { animation-delay: 0.8s; }
+.word:nth-child(6) { animation-delay: 1.0s; }
+.word:nth-child(7) { animation-delay: 1.2s; }
+.word:nth-child(8) { animation-delay: 1.4s; }
+.word:nth-child(9) { animation-delay: 1.6s; }
+.word:nth-child(10) { animation-delay: 1.8s; }
+
+@keyframes zoom-in {
+  0% {
+      transform: scale(0); /* Start from 0 (invisible) */
+      opacity: 0;
+  }
+  50% {
+      transform: scale(1.2); /* Slightly larger for pulsing effect */
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1); /* Final size */
+      opacity: 1;
+  }
+}
+
+.explore { 
+  padding: 10px 20px;  
+  border: 2px solid #264653; 
+  border-radius: 50px; 
+  background-color: #264653; 
+  color: aqua;  
+  font-size: 16px;  
+  cursor: pointer;  
+  transition: background-color 0.3s ease, transform 0.3s ease;   
+}
+
+.explore:hover {
+  background-color: #2a9d8f;  
+  transform: scale(1.05);  
+  color:#fff;
+}
+
+.aboutme-intro{
+  display: flex;
+  text-align: start; 
+  padding: 5px 5px;
+  color: #fff;  
+}
+
+.aboutme{
+  position: relative;
+  display: flex;   
+  background:  rgba(0, 0, 0, 0.5);
+  width: 80%; 
+  padding: 7%;    
+  margin:10%;
+  color: #fff;  
+  gap: 50px;
+}
+
+.certifications{
+  display: block;
+  margin-top: 30%;  
+}
+
+.dotted{
+  border-left: 2px solid #00FFFF; /* Change the color and width */
+  height: 50px; /* Adjust the height as needed */
+  margin-left: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ .certificate{
+  display: inline-block;  
+  text-align: center;
+  min-width: 350px;  
+  padding: 10px 20px;     
+  border: 2px solid #264653; 
+  border-radius: 50px; 
+  background-color: #264653; 
+  color: aqua;  
+  font-size: 16px;  
+  cursor: pointer;  
+  transition: background-color 0.3s ease, transform 0.3s ease;  
+}
+
+.certificate:hover {
+  background-color: #2a9d8f;  
+  transform: scale(1.05);  
+  color:#fff;
+}
+
+
+.hightlight{
+  display: flex;  
+  border: 3px solid  rgba(38, 70, 83 , 0.1); 
+  max-width: 500px;
+  text-align: center;
+  justify-content: center;   
+  padding: 20px 20px 20px 20px; 
+}
+
+.background-text {
+  position: absolute;
+  top: 12%;
+  left: 33%;
+  transform: translate(-50%, -50%);
+  font-size: 90px; /* Large text size */
+  color:rgba(41, 64, 73, 0.1); /* Light, semi-transparent text */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  z-index: 1; /* Ensure the background text stays in the background */
+  pointer-events: none; /* Prevents the background text from interfering with other elements */
+}
+
+.img{
+    width: 230px; /* Adjust as needed */
+    height: 230px; /* Adjust as needed */
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    border-top: 25px solid #264653; 
+    border-left: 25px solid #264653; 
+    box-sizing: content-box;      
+}
+
+.profile{ 
+  width: 250px;  
+}
+.myself{
+  display: inline-block;
+  margin-top: 0%;
+  text-align: start;
+}
+
+.animated-icon {
+  width: 150px;
+  height: 150px; 
+  border-radius: 20%;
+  transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+  display: inline-block;
+}
+
+.animated-icon:hover {
+  transform: scale(1.3); /* Increase size on hover */
+  background-color: #00FFFF;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8),   /* Aqua glow (neon effect) */
+  0 0 20px rgba(0, 255, 255, 0.6),   /* Further aqua glow */
+  0 10px 20px rgba(0, 128, 128, 0.5); 
+}
+
+.icon{
+  display: flex;
+  gap: 20px;
+}
+
+.gif{
+  display: flex;
+  position: absolute;
+  width: 250px;
+  align-content: start;
+  padding-bottom: 50px;
+  padding-right: 20px;
+}
+
+.skills{
+  display:inline-block;
+  width: 250px;
+  align-content: start;
+  padding-bottom: 50px;
+  padding-right: 20px;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column; /* Stack heading and cards vertically */
+  align-items: center; /* Center the content horizontally */
+  margin: 10%;
+  background:  rgba(0, 0, 0, 0.5);
+  width: 80%;  
+}
+
+.mypro {
+  margin-bottom: 20px; 
+  text-align: center;
+  color:#fff;
+}
+
+
+
+.cards-container {
+  display: flex;
+  justify-content: center; /* Centers the cards horizontally */
+  flex-wrap: wrap; /* Allows cards to wrap to the next line if needed */
+  gap: 20px; /* Space between each card */
+  width: 100%; /* Ensure cards-container takes up full width */
+  padding-bottom: 50px;
+}
+
+.card {
+  max-width: 300px; /* Adjust as needed */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  height: 300px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;  
+  z-index: 1;
+}
+
+.card:hover{
+  transform: scale(1.3); /* Increase size on hover */
+  background-color: #00FFFF;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8),   /* Aqua glow (neon effect) */
+  0 0 20px rgba(0, 255, 255, 0.6),   /* Further aqua glow */
+  0 10px 20px rgba(0, 128, 128, 0.5); 
+  z-index: 10;
+  position: relative;
+}
+
+/* Card image */
+.card-img {
+  width: 300px;
+  height: 500px;
+  display: block;
+}
+
+/* Card content */
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:  rgba(42, 157, 143,0.7); /* Semi-transparent background */
+  padding: 15px;
+  transform: translateY(100%); /* Hide content below the card initially */
+  opacity: 0; /* Make content invisible initially */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+  color:#fff;
+}
+
+/* Reveal content on hover */
+.card:hover .card-content {
+  transform: translateY(0); /* Slide content up */
+  opacity: 1; /* Make content visible */
+}
+
+/* Card title */
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color:#fff;
+}
+
+/* Card text */
+.card-text {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color:#fff;
+}
+
+/* Card button */
+.card-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #264653;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: #2a9d8f;
+}
+
+
+.carousel-item img {
+  width: 100%;
+  height: 300px; /* Maintain the aspect ratio of the images */
+  object-fit: contain; /* Ensure the entire image is shown without cutting */
+}
+
+.img-2{
+  width: 100%;
+  height: 270px; /* Maintain the aspect ratio of the images */
+  object-fit: contain; 
+}
+
+
+.mask{
+  mask-image: url(img/page_1.png);
+  mask-repeat:no-repeat;
+}
+
+.fade-section {
+  opacity: 0; /* Hidden initially */
+  transform: translateY(50px); /* Initial position below */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move into place */
+}
+
+
+
+.bg-color{
+  background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0));
+}
+
+
+
+.con{
+  color:rgb(255, 255, 255);
+  padding-top: 10%;
+  padding-left: 5%;
+  font-size: 3rem;  
+  border-bottom-style:outset;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%; 
+}
+
+
+.con-img{
+  width: 85%;
+  margin-left: 20%;
+  
+}
+
+.bg-blur{
+  background-color: rgba(0, 0, 0, 0.5);  
+  margin-top: 3%; 
+}
+
+.bg-black{
+  background-color: #000000;
+  box-sizing: border-box;  
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  margin-bottom: 5%;  
+  padding-top: 2%;
+}
+
+.edu{
+  display: flex;
+  font: #fff;
+  z-index: 2;
+  gap: 5%;
+}
+
+/*.mg-blur{   
+  margin-left: 31vw;
+  margin-top: 0%;
+  z-index: 10; 
+}*/
+.img-blur {
+  margin-top: 8vw;
+  margin-left: 1.5vw;
+}
+
+@media (max-width: 1200px) {  /* For large screens like laptops/desktops */
+  .img-blur {
+    margin-top: 7vw;
+    margin-left: 2vw;
+  }
+}
+
+@media (max-width: 768px) {  /* For tablets */
+  .img-blur {
+    margin-top: 5vh;  /* Use vh (viewport height) for smaller screens */
+    margin-left: 3vw;
+  }
+}
+
+@media (max-width: 576px) {  /* For mobile screens */
+  .img-blur {
+    margin-top: 3vh;  /* Use vh for small mobile screens */
+    margin-left:2vh;
+  }
+}
+
+
+.sum{
+  justify-content: left;
+  text-align: left;
+  color: #fff;
+  box-sizing: content-box;
+}
+
+.edu{
+  color: #fff;
+  margin-top: 2%;
+  padding-left: 5%;
+}
+
+.edu-1{
+  color:rgb(255, 255, 255);
+  padding-top: 2%;
+  font-size: 2rem;  
+  border-bottom-style:outset;
+  justify-content: center;
+  width: 25vw;
+}
+
+.team{
+  display: flex;
+  justify-content: start;
+  padding-left: 0%;
+  gap: 5%;
+}
+
+.rating-box {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, aqua 70%, lightgray 30%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
+
+.rating-box {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, rgb(2, 73, 73) 75%, lightgray 30%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
+
+.rating-box-1 {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, rgb(2, 73, 73) 60%, lightgray 40%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
+
+.rating-box-2 {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, rgb(2, 73, 73) 85%, lightgray 10%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
+
+.rating-box-02 {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, rgb(2, 73, 73) 95%, lightgray 5%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
+
+.rating-box-01 {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, rgb(2, 73, 73) 90%, lightgray 10%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
+
+.rating-box-03 {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, rgb(2, 73, 73) 95%, lightgray 5%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
+
+.rating-box-3 {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, rgb(2, 73, 73) 70%, lightgray 30%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
+
+.rating-box-4 {
+  margin-top: 0.5%;
+  width: 150px;        /* Adjust the size */
+  height: 17px;        /* Adjust the size */
+  border: 2px solid black;  /* Border */
+  background: linear-gradient(to right, rgb(2, 73, 73) 85%, lightgray 10%);  /* Two color fill */
+  /* Ensure it doesn't stretch */
+}
